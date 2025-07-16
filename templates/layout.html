@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/static//css/index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style type="text/tailwindcss">
+        @theme {
+              --color-clifford: #da373d;
+            }
+    </style>
+
+    {% if title %}
+    <title>Flask Blog | {{title}}</title>
+    {% else %}
+    <title>Flask Blog</title>
+    {% endif %}
+
+</head>
+
+<body dir="rtl">
+
+    <div class='w-full h-16 md:h-20 flex items-center justify-between'>
+        <!-- {/* LOGO */} -->
+        <a to='/' class='flex items-center mr-15 gap-5 text-xl font-bold'>
+            <Image urlEndpoint={import.meta.env.VITE_URL_ENDPOINT} src='https://ik.imagekit.io/r6yaoh57f/hcccs%20.png'
+                width='40' height='40' alt='logo' />
+            <span>HCCCS</span>
+        </a>
+        <!-- {/* MOBILE MENU */} -->
+        <div class='md:hidden '>
+            <div class='cursor-pointer text-4xl '>
+                <!-- {open ? 'X' : '≡'} -->
+            </div>
+            <!-- {/* MOBILE LINK LIST */} -->
+            <div class='w-full h-screen flex flex-col items-center gap-8 font-medium text-lg justify-center absolute
+                top-16 z-10 transition-all ease-in-out bg-[#e6e6ff]   -right-[100%] '>
+                <a to='/'>
+                    الرئيسية
+                </a>
+                <a to='/posts?cat=trending'>
+                    المنشورات
+                </a>
+                <a to='/videos?cat=trinding'>
+                    الفيديوهات
+                </a>
+                <a to='/about'>
+                    نبذة عنا
+                </a>
+                <a to='/login'>
+                    <button class='py-2 px-4 rounded-3xl bg-blue-800 text-white'>
+                        تسجيل الدخول
+                    </button>
+                </a>
+            </div>
+        </div>
+        <!-- {/* DESKTOP MENU */} -->
+        <div class='hidden md:flex items-center gap-8 xl:gap-12 font-medium'>
+            <a to='/'>
+                الرئيسية
+                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
+            </a>
+            <a to='/posts?cat=trending'>
+                المنشورات
+                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
+            </a>
+            <a to='/videos?cat=trinding'>
+                الفيديوهات
+                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
+            </a>
+            <a to='/about'>
+                نبذة عنا
+                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
+            </a>
+            <SignedOut>
+                <a to='/login'>
+                    <button class='py-2 px-4 rounded-3xl bg-blue-800 text-white'>
+                        تسجيل الدخول 🖐
+                    </button>
+                </a>
+            </SignedOut>
+            <SignedIn>
+                <UserButton />
+            </SignedIn>
+        </div>
+    </div>
+    <div className='px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64 '>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

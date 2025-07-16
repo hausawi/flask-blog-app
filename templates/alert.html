@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="flex flex-col gap-5 min-h-screen items-center justify-center bg-gray-200">
+    <div class="flex flex-col gap-5">
+        <div class="max-w-lg rounded bg-green-100 text-green-700 overflow-hidden shadow-md shadow-green-500/20">
+            <div class="flex">
+                <div class="flex items-center gap-4 p-4">
+                    <div class="shrink-0">
+                        <img src="/static/tick.png" width="32" height="32" alt="">
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold capitalize">Success Title Goes Here</p>
+                        <p class="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi asperiores
+                            ipsam doloribus qui sapiente voluptates. Culpa labore quis quas quo!</p>
+                        <div>
+                            <a href="#" class="text-sm tracking-wide hover:underline">See Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex cursor-pointer items-center border-1 border-green-200 hover:bg-green-200 px-5">
+                    <button>
+                        <img src="/static/close-green.png" width="28" height="28" alt="">
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-5">
+        <div class="max-w-lg rounded bg-yellow-100 text-yellow-700 overflow-hidden shadow-md shadow-yellow-500/20">
+            <div class="flex">
+                <div class="flex items-center gap-4 p-4">
+                    <div class="shrink-0">
+                        <img src="/static/exclamation.png" width="32" height="32" alt="">
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold capitalize">Error Title Goes Here</p>
+                        <p class="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi asperiores
+                            ipsam doloribus qui sapiente voluptates. Culpa labore quis quas quo!</p>
+                        <div>
+                            <a href="#" class="text-sm tracking-wide hover:underline">See Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex cursor-pointer items-center border-1 border-yellow-200 hover:bg-yellow-200 px-5">
+                    <button>
+                        <img src="/static/close-yellow.png" width="28" height="28" alt="">
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex flex-col gap-5">
+        <div class="max-w-lg rounded bg-red-100 text-red-700 overflow-hidden shadow-md shadow-red-500/20">
+            <div class="flex">
+                <div class="flex items-center gap-4 p-4">
+                    <div class="shrink-0">
+                        <img src="/static/question.png" width="32" height="32" alt="">
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold capitalize">Failure Title Goes Here</p>
+                        <p class="text-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi asperiores
+                            ipsam doloribus qui sapiente voluptates. Culpa labore quis quas quo!</p>
+                        <div>
+                            <a href="#" class="text-sm tracking-wide hover:underline">See Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex cursor-pointer items-center border-1 border-red-200 hover:bg-red-200 px-5">
+                    <button>
+                        <img src="/static/close-red.png" width="28" height="28" alt="">
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

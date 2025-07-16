@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class='px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64 '>
+    <div class='mt-4 flex flex-col gap-4 '>
+        <!-- {/* BREADCRUMB */} -->
+        <div class='flex gap-4'>
+            <a to='/'>الرئيسية</a>
+            <span>◉</span>
+            <span class='text-blue-800'>المقالات والمـنشورات</span>
+        </div>
+        <!-- {/* INTRODUCTION */} -->
+        <div class='flex items-center justify-center'>
+            <!-- {/* titles */} -->
+            <div class=''>
+                <h1 class='  text-gray-800 text-xl md:text-2xl lg:text-4xl font-bold'>
+                    المجلس المركزي لتنسيقية الهوسا بالسودان |
+                </h1>
+                <h1
+                    class=' justify-end lg:items-center items-center lg:pr-0 text-gray-800 text-xl md:text-xl lg:text-2xl font-bold'>
+                    Hausa Co-ordination Central Council in Sudan
+                </h1>
+                <p class='mt-8 text-sm sm:text-xs text-justify'>
+                    للتأريخ عن شعوب أمة بعينها، هناك عدة محاور مهمة يجب أخذها في
+                    الاعتبار لضمان تقديم صورة دقيقة وشاملة لتاريخهم. يجب البحث عن أصول
+                    الشعب وتاريخهم المبكر، بما في ذلك هجراتهم، واستيطانهم، وتطورهم
+                    الاجتماعي والثقافي. دراسة الأساطير والروايات الشفوية والتي تناقلتها
+                    الأجيال و التقاليد والعادات الاجتماعية، يمكن أن توفر رؤى قيمة حول
+                    تاريخهم المبكر وثقافتهم.
+                </p>
+            </div>
+            <!-- {/* animated button */} -->
+            <a to='/' class=' relative hidden md:block'>
+                <svg width='180' height='180' viewBox='6 -39 110 200' class='text-lg tracking-widest '>
+                    class='text-2lg tracking-widest animate-spin animatedButton'>
+                    <path id='circlePath' fill='none'
+                        d='M61.438,0c33.93,0,61.441,27.512,61.441,61.441 c0,33.929-27.512,61.438-61.441,61.438C27.512,122.88,0,95.37,0,61.441C0,27.512,27.512,0,61.438,0L61.438,0z' />
+                    <text>
+                        <textPath href='#circlePath' startOffset='100%'>
+                            المجلس المركزي لتنسيقية الهوسا بالسـودان•
+                        </textPath>
+                        <textPath href='#circlePath' startOffset='21%'>
+                            HCCCS
+                        </textPath>
+                    </text>
+                </svg>
+                <button
+                    class=' absolute top-0 right-0 left-0 bottom-0 w-20 h-20 m-auto bg-blue-800 rounded-full flex items-center justify-center'>
+                    <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M16.3891 8.11096L8.61091 15.8891' stroke='white' strokeWidth='2' />
+                        <path d='M16.3891 8.11096L16.7426 12' stroke='white' strokeWidth='2' />
+                        <path d='M16.3891 8.11096L12.5 7.75741' stroke='white' strokeWidth='2' />
+                    </svg>
+                </button>
+            </a>
+        </div>
+
+
+    </div>
+
+    <!-- Main Categories -->
+    <div class='hidden  md:flex bg-white rounded-3xl xl:rounded-full p-4 shadow-lg items-center justify-center gap-1 '>
+        <!-- as -->
+        <div class='flex-1 flex text-sm  items-center justify-between flex-wrap'>
+            <a to='/posts' class='bg-blue-800 text-white rounded-full px-4 py-2'>
+                كافة الموضوعات
+            </a>
+            <a to='/posts?cat=web-design' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                التاريخ المبكر
+            </a>
+            <a to='/posts?cat=development' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                الثقافة والتقاليد
+            </a>
+            <a to='/posts?cat=database' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                التاريخ السياسي
+            </a>
+            <a to='/posts?cat=seo' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                الاقتصاد والتجارة
+            </a>
+            <a to='/posts?cat=marketing' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                الدين والفكر
+            </a>
+            <a to='/posts?cat=marketing' class='hover-bg-blue-500 rounded-full px-2 py-2'>
+                التأريخ الحديث
+            </a>
+        </div>
+        <span class='text-xl font-medium'>|</span>
+        <!-- Search -->
+        <div class='bg-gray-100 p-2 rounded-full flex items-center gap-2 '>
+            <svg width='30px' height='30px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <g id='SVGRepo_bgCarrier' strokeWidth='0' />
+
+                <g id='SVGRepo_tracerCarrier' strokeLinecap='round' strokeLinejoin='round' />
+
+                <g id='SVGRepo_iconCarrier'>
+                    {' '}
+                    <path
+                        d='M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z'
+                        stroke='#000000' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />{' '}
+                </g>
+            </svg>
+            <input type='text' placeholder='search a post...' class='bg-transparent ' />
+        </div>
+    </div>
+
+
+<!-- Feature Posts -->
+<div class='mt-8 mb-4 flex flex-col lg:flex-row gap-8'>
+    <div class='w-full lg:w-1/2 flex flex-col gap-4'>
+        <!-- Image -->
+        <img src='/static/hausa1.jpg' class='rounded-3xl object-cover' />
+        <!-- Details -->
+        <div class='flex items-center gap-4'>
+            <h1 class='font-semibold lg:text-lg'>01</h1>
+            <a class='text-blue-800 lg:text-lg'>التاريخ القديم</a>
+            <span class='text-gray-500'>07:33 PM - 2025/05/17</span>
+        </div>
+        <!-- Title -->
+        <a class='text-xl lg:text-2xl line-clamp-1 font-semibold lg:font-bold' to='/posts'>
+            الأصول والتاريخ المبكر و الأساطير والروايات الشفوية
+        </a>
+    </div>
+
+    <!-- Others -->
+    <div class='w-full lg:w-1/2 flex flex-col gap-4'>
+        {% for post in posts %}
+        <div class='lg:h-1/3 flex juctify-right gap-4'>
+            <img src={{post.img}} class='rounded-3xl object-cover w-1/3 aspect-video' alt='' />
+
+            <!-- details and title -->
+            <div class='w-2/3 '>
+                <!-- details  -->
+                <div class='flex items-center gap-4 text-sm lg:text-base mb-4'>
+                    <h1 class='font-semibold'>{{post._id}}</h1>
+                    <a class='text-blue-800'>{{post.category}}</a>
+                    <span class='text-gray-500 text-sm'>{{post.date}}</span>
+                </div>
+                <!-- Title -->
+                <a to='/posts' class='text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium '>
+                    {{post.title}}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+<!-- End of Feature posts -->
+
+<div class=''>
+    <h1 class='my-8 text-2xl text-gray-600'>أحــدث المنشورات</h1>
+</div>
+</div>
+{% endblock content%}
