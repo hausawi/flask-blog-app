@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/static//css/index.css">
+    <link rel="stylesheet" href="/static/css/index.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -25,43 +25,39 @@
 </head>
 
 <body dir="rtl">
-
-    <div class='w-full h-16 md:h-20 flex items-center justify-between'>
-        <!-- {/* LOGO */} -->
-        <a to='/' class='flex items-center mr-15 gap-5 text-xl font-bold'>
-            <Image urlEndpoint={import.meta.env.VITE_URL_ENDPOINT} src='https://ik.imagekit.io/r6yaoh57f/hcccs%20.png'
-                width='40' height='40' alt='logo' />
-            <span>HCCCS</span>
-        </a>
-        <!-- {/* MOBILE MENU */} -->
-        <div class='md:hidden '>
-            <div class='cursor-pointer text-4xl '>
-                <!-- {open ? 'X' : '≡'} -->
-            </div>
+    <div class="mb-1 px-2 shadow">
+        <div
+            class=' relative mx-auto max-w-screen-lg py-2 flex flex-col sm:flex-row   sm:items-center sm:justify-between'>
+            <!-- {/* LOGO */} -->
+            <a href='/' class='flex items-center mr-15 gap-5 text-xl font-bold'>
+                <Image urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                    src='https://ik.imagekit.io/r6yaoh57f/hcccs%20.png' width='40' height='40' alt='logo' />
+                <span>HCCCS</span>
+            </a>
+            <!-- {/* MOBILE MENU X*/} -->
+            <input class="peer hidden" type="checkbox" name="" id="navbar-open">
+            <span class="sr-only">Toggle Navigation</span>
+            <label for="navbar-open" class=' hidden cursor-pointer text-4xl absolute mt-2 right-5 '>
+                ≣
+            </label>
             <!-- {/* MOBILE LINK LIST */} -->
-            <div class='w-full h-screen flex flex-col items-center gap-8 font-medium text-lg justify-center absolute
-                top-16 z-10 transition-all ease-in-out bg-[#e6e6ff]   -right-[100%] '>
-                <a to='/'>
-                    الرئيسية
-                </a>
-                <a to='/posts?cat=trending'>
-                    المنشورات
-                </a>
-                <a to='/videos?cat=trinding'>
-                    الفيديوهات
-                </a>
-                <a to='/about'>
-                    نبذة عنا
-                </a>
-                <a to='/login'>
+            <nav aria-label="Header Navigation" class='peer-checked:block py-4 sm:block sm:py-0'>
+                <ul class="flex-col flex gap-y-4 sm:flex-row sm:gap-x-8">
+                    <li class="text-gray-600"><a class="" href="">الرئيسية</a></li>
+                    <li class="text-gray-600"><a class="" href="">المنشورات</a></li>
+                    <li class="text-gray-600"><a class="" href="">الفيديوهات</a></li>
+                    <li class="text-gray-600"><a class="" href="">نبذة عنا</a></li>
+                    <li class="text-gray-600"><a class="" href="">الرئيسية</a></li>
                     <button class='py-2 px-4 rounded-3xl bg-blue-800 text-white'>
-                        تسجيل الدخول
+                        تسجيل الدخول 🖐
                     </button>
-                </a>
-            </div>
+                </ul>
+
+            </nav>
         </div>
+
         <!-- {/* DESKTOP MENU */} -->
-        <div class='hidden md:flex items-center gap-8 xl:gap-12 font-medium'>
+        <!-- <div class='hidden md:flex items-center gap-8 xl:gap-12 font-medium'>
             <a to='/'>
                 الرئيسية
                 <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
@@ -88,9 +84,35 @@
             <SignedIn>
                 <UserButton />
             </SignedIn>
-        </div>
+        </div> -->
     </div>
+
     <div className='px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64 '>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for categories, message in messages %}
+        <!-- <div class="alert alert-{{ category }}">
+                        {{ message}}
+                    </div> -->
+        <div class=" flex flex-col gap-2">
+            <div
+                class=" flex justify-between items-center gap-2 px-15 max-w-lg rounded bg-green-100 text-green-700 overflow-hidden shadow-md shadow-green-500/20">
+
+                <div class="shrink-0">
+                    <img src="/static/tick.png" width="22" height="22" alt="">
+                </div>
+                <div class="space-y-1">
+                    <p class="font-bold capitalize">{{message}}</p>
+                    <p class="text-sm">تمتع بتجربة فريدة من خلال تصفحك لاحدث المقالات والمنشورات</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+        {% endif%}
+        {% endwith %}
+        <!-- End -->
         {% block content %}
         {% endblock %}
     </div>
