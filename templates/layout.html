@@ -91,24 +91,12 @@
         <!-- Flash Messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-        {% for categories, message in messages %}
-        <!-- <div class="alert alert-{{ category }}">
-                        {{ message}}
-                    </div> -->
-        <div class=" flex flex-col gap-2">
-            <div
-                class=" flex justify-between items-center gap-2 px-15 max-w-lg rounded bg-green-100 text-green-700 overflow-hidden shadow-md shadow-green-500/20">
-
-                <div class="shrink-0">
-                    <img src="/static/tick.png" width="22" height="22" alt="">
-                </div>
-                <div class="space-y-1">
-                    <p class="font-bold capitalize">{{message}}</p>
-                    <p class="text-sm">تمتع بتجربة فريدة من خلال تصفحك لاحدث المقالات والمنشورات</p>
-                </div>
-            </div>
-
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message}}
         </div>
+        
+
         {% endfor %}
         {% endif%}
         {% endwith %}

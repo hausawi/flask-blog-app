@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style type="text/tailwindcss">
+        @theme {
+                  --color-clifford: #da373d;
+                }
+        </style>
+
+    {% if title %}
+    <title>Flask Blog | {{title}}</title>
+    {% else %}
+    <title>Flask Blog</title>
+    {% endif %}
+</head>
+
+<body>
+    <div class="content-section mx-auto pt-5" style="width: 350px;">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message}}
+        </div>
+
+
+        {% endfor %}
+        {% endif%}
+        {% endwith %}
+        <!-- End -->
+        <form method="POST" action="" class="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Login</legend>
+
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-lebel") }}
+                    <!-- Error validation -->
+                    {% if form.email.errors %}
+                    {{ form.email(class='form-control form-control-lg is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!-- End of error validation -->
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-lebel") }}
+                    <!-- Error validation -->
+                    {% if form.password.errors %}
+                    {{ form.password(class='form-control form-control-lg is-invalid') }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                    <!-- End of error validation -->
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-lebel") }}
+                </div>
+                <small class="text-muted ml-2">
+                    <a href="#">Forgot Password ?</a>
+                </small>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="w-full px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-teal-50
+                hover:text-black")
+                }}
+            </div>
+            <div class="form-group">
+                <small class="items-center justify-center ">Need an account? <a href="{{ url_for('register') }}">Sign Up
+                    </a></small>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

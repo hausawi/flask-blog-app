@@ -1,10 +1,11 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm
 from posts import Data
+import crids
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'cac7e326c021997ff92f1c829f57943d'
+app.config['SECRET_KEY']= crids.SECRET_KEY
 
 
 posts = [
@@ -66,9 +67,16 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        if form.email.data == 'sudastack@gmail.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Loging Unseccessful. Please enter the correct cridentials', 'danger')
+
     return render_template('login.html', title='Login', form=form)
 
 
