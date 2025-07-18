@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="/static/css/index.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -24,67 +26,38 @@
 
 </head>
 
-<body dir="rtl">
-    <div class="mb-1 px-2 shadow">
-        <div
-            class=' relative mx-auto max-w-screen-lg py-2 flex flex-col sm:flex-row   sm:items-center sm:justify-between'>
-            <!-- {/* LOGO */} -->
-            <a href='/' class='flex items-center mr-15 gap-5 text-xl font-bold'>
-                <Image urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
-                    src='https://ik.imagekit.io/r6yaoh57f/hcccs%20.png' width='40' height='40' alt='logo' />
-                <span>HCCCS</span>
-            </a>
-            <!-- {/* MOBILE MENU X*/} -->
-            <input class="peer hidden" type="checkbox" name="" id="navbar-open">
-            <span class="sr-only">Toggle Navigation</span>
-            <label for="navbar-open" class=' hidden cursor-pointer text-4xl absolute mt-2 right-5 '>
-                ≣
-            </label>
-            <!-- {/* MOBILE LINK LIST */} -->
-            <nav aria-label="Header Navigation" class='peer-checked:block py-4 sm:block sm:py-0'>
-                <ul class="flex-col flex gap-y-4 sm:flex-row sm:gap-x-8">
-                    <li class="text-gray-600"><a class="" href="">الرئيسية</a></li>
-                    <li class="text-gray-600"><a class="" href="">المنشورات</a></li>
-                    <li class="text-gray-600"><a class="" href="">الفيديوهات</a></li>
-                    <li class="text-gray-600"><a class="" href="">نبذة عنا</a></li>
-                    <li class="text-gray-600"><a class="" href="">الرئيسية</a></li>
-                    <button class='py-2 px-4 rounded-3xl bg-blue-800 text-white'>
+<body class='px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64 ' dir="rtl">
+    <div >
+        <div class=" py-1 px-6 shadow md:flex md:justify-between md:items-center w-full ">
+
+            <div class=" w-full flex items-center justify-between">
+                <a href='/' class='flex items-center mr-10 gap-5 text-xl font-bold'>
+                    <Image urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                        src='https://ik.imagekit.io/r6yaoh57f/hcccs%20.png' width='40' height='40' alt='logo' />
+                    <span class="text-black">HCCCS</span>
+                </a>
+                <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+                    <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+                </span>
+
+                <ul
+                    class="md:bg-[#e6e6ff] bg-[#fff] md:flex md:items-center z-[1] md:z-auto  md:static absolute  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+                    <li class="md:mx-4 my-4 md:my-0 "><a class="text-xl " href="{{ url_for('home') }}">الرئيسية</a></li>
+                    <hr class="text-white">
+                    <li class="md:mx-4 my-4 md:my-0 "><a class="text-xl " href="#">المنشورات</a></li>
+                    <hr class="text-white">
+                    <li class="md:mx-4 my-4 md:my-0 "><a class="text-xl " href="#">الفيديوهات</a></li>
+                    <hr class="text-white">
+                    <li class="md:mx-4 my-4 md:my-0 "><a class="text-xl " href="{{ url_for('about') }}">نبذة
+                            عنا</a></li>
+                    <hr class="text-white">
+                    <button class='py-2 sm:py-0 px-4 rounded bg-blue-800 text-white'>
                         تسجيل الدخول 🖐
                     </button>
                 </ul>
-
-            </nav>
+            </div>
         </div>
 
-        <!-- {/* DESKTOP MENU */} -->
-        <!-- <div class='hidden md:flex items-center gap-8 xl:gap-12 font-medium'>
-            <a to='/'>
-                الرئيسية
-                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
-            </a>
-            <a to='/posts?cat=trending'>
-                المنشورات
-                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
-            </a>
-            <a to='/videos?cat=trinding'>
-                الفيديوهات
-                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
-            </a>
-            <a to='/about'>
-                نبذة عنا
-                <hr class='w-2/4 border-none h-[1.5px] bg-[#0046BB] hidden' />
-            </a>
-            <SignedOut>
-                <a to='/login'>
-                    <button class='py-2 px-4 rounded-3xl bg-blue-800 text-white'>
-                        تسجيل الدخول 🖐
-                    </button>
-                </a>
-            </SignedOut>
-            <SignedIn>
-                <UserButton />
-            </SignedIn>
-        </div> -->
     </div>
 
     <div className='px-4 md:px-8 lg:px-16 lx:px-32 2xl:px-64 '>
@@ -95,7 +68,7 @@
         <div class="alert alert-{{ category }}">
             {{ message}}
         </div>
-        
+
 
         {% endfor %}
         {% endif%}
@@ -105,15 +78,16 @@
         {% endblock %}
     </div>
 
-
+    </div>
 
 
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
 
@@ -128,7 +102,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
+    <script>
+        function Menu(e) {
+            let list = document.querySelector('ul');
+            e.name === 'menu' ? (e.name = 'close', list.classList.add('top-[80px]'), list.classList.add('opacity-100')) : (e.name = 'menu', list.classList.remove('top-[80px]'), list.classList.remove('opacity-100'))
+        }
+    </script>
 </body>
 
 </html>

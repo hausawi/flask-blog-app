@@ -36,20 +36,20 @@
                     <path id='circlePath' fill='none'
                         d='M61.438,0c33.93,0,61.441,27.512,61.441,61.441 c0,33.929-27.512,61.438-61.441,61.438C27.512,122.88,0,95.37,0,61.441C0,27.512,27.512,0,61.438,0L61.438,0z' />
                     <text>
-                        <textPath href='#circlePath' startOffset='100%'>
+                        <textPath href='#circlePath' startoffset='100%'>
                             المجلس المركزي لتنسيقية الهوسا بالسـودان•
                         </textPath>
-                        <textPath href='#circlePath' startOffset='21%'>
+                        <textPath href='#circlePath' startoffset='21%'>
                             HCCCS
                         </textPath>
                     </text>
                 </svg>
                 <button
                     class=' absolute top-0 right-0 left-0 bottom-0 w-20 h-20 m-auto bg-blue-800 rounded-full flex items-center justify-center'>
-                    <svg width='50px' height='50px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                        <path d='M16.3891 8.11096L8.61091 15.8891' stroke='white' strokeWidth='2' />
-                        <path d='M16.3891 8.11096L16.7426 12' stroke='white' strokeWidth='2' />
-                        <path d='M16.3891 8.11096L12.5 7.75741' stroke='white' strokeWidth='2' />
+                    <svg width='50px' height='50px' viewbox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M16.3891 8.11096L8.61091 15.8891' stroke='white' strokewidth='2' />
+                        <path d='M16.3891 8.11096L16.7426 12' stroke='white' strokewidth='2' />
+                        <path d='M16.3891 8.11096L12.5 7.75741' stroke='white' strokewidth='2' />
                     </svg>
                 </button>
             </a>
@@ -116,7 +116,7 @@
             <span class='text-gray-500'>07:33 PM - 2025/05/17</span>
         </div>
         <!-- Title -->
-        <a class='text-xl lg:text-2xl line-clamp-1 font-semibold lg:font-bold' to='/posts'>
+        <a class='text-xl lg:text-2xl line-clamp-1 font-semibold lg:font-semibold' to='/posts'>
             الأصول والتاريخ المبكر و الأساطير والروايات الشفوية
         </a>
     </div>
@@ -131,7 +131,7 @@
             <div class='w-2/3 '>
                 <!-- details  -->
                 <div class='flex items-center gap-4 text-sm lg:text-base mb-4'>
-                    <h1 class='font-semibold'>{{post._id}}</h1>
+                    <h1 class='font-medium'>{{post._id}}</h1>
                     <a class='text-blue-800'>{{post.category}}</a>
                     <span class='text-gray-500 text-sm'>{{post.date}}</span>
                 </div>
@@ -150,6 +150,34 @@
 
 <div class=''>
     <h1 class='my-8 text-2xl text-gray-600'>أحــدث المنشورات</h1>
+</div>
+
+<!-- Post List Items -->
+<div class=' lg:flex-col flex-col flex xl:flex-col gap-8'>
+    <!-- Details  -->
+    {% for post in posts %}
+    <div key={index}>
+        <div class=' xl:block xl:w-full'>
+            <img class='rounded-2xl object-cover w-735' src={{post.img}} />
+        </div>
+        <div class='flex flex-col gap-4 xl:w-full'>
+            <div class='text-4xl font-semibold '>{{post.title}}</div>
+            <div class='flex posts-center gap-2 text-gray-400 text-sm'>
+                <span>نشر </span>
+                <div class='text-bold'>{{post.author}}</div>
+                <span>في</span>
+                <div class='text-bold'>{{post.category}}</div>
+                <span>{{post.date}}</span>
+            </div>
+            <p class='text-justify line-clamp-4 hover:line-clamp-none'>
+                {{post.content}}
+            </p>
+            <Link href="" class='underline text-blue-800 text-sm'>
+            إقراء المــزيد
+            </Link>
+        </div>
+    </div>
+   {% endfor %}
 </div>
 </div>
 {% endblock content%}
