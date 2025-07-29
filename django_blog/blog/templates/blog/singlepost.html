@@ -1,0 +1,173 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class='flex flex-col gap-8 mt-17'>
+    <!-- Details  -->
+    <div class='flex gap-8'>
+        <div class='lg:w-3/5 flex flex-col gap-8 '>
+            <div>
+                <h1 class='text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold '>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis.
+                </h1>
+                <div class='flex items-center gap-2 text-gray-400 text-sm'>
+                    <span>نشر بواسطة</span>
+                    <a>haider moubarak</a>
+                    <span>في</span>
+                    <a>Politics</a>
+                    <span>07:33 PM - 2025/05/17</span>
+                </div>
+                <p class='text-gray-500 font-medium'>Lorem ipsum dolor sit amet consectetur adipisicing elit. In
+                    officiis esse doloremque exercitationem veniam, hic accusantium veritatis repudiandae aut, dolor
+                    officia! Consequuntur reprehenderit reiciendis cum sapiente soluta adipisci! Asperiores, nam!</p>
+            </div>
+        </div>
+        <div class='hidden lg:block w-2/5'>
+            <img width='600' class='rounded-2xl' src='/static/hausa1.jpg' />
+        </div>
+    </div>
+    <!-- Content  -->
+    <div class='flex flex-col md:flex-row gap-12 '>
+        <!-- Text  -->
+
+        <div class='lg:text-lg flex flex-col gap-6 text-justify'>
+            <div>
+                <div class='w-full lg:hidden'>
+                    <img width='600' class='rounded-2xl' src='/static/hausa1.jpg' />
+                </div>
+                <p class=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, laudantium dolorum sed rem
+                    tenetur minima amet. Asperiores eum nulla tempore nam exercitationem sunt unde soluta id sint
+                    tempora officiis minima expedita, nemo beatae architecto provident modi voluptates nihil dolorem,
+                    odit deserunt? Ipsa voluptate in voluptas ex corrupti soluta consequatur facere?</p>
+            </div>
+            <div class='flex flex-col gap-8 lg:w-3/5'>
+                <h1 class='text-xl text-gray-500 underline '>التعليق</h1>
+                <div class='flex items-center justify-between gap-8 w-full'>
+                    <textarea placeholder='Write a comment...' class='w-full p-4 rounded-xl'></textarea>
+                    <button class='bg-blue-800 px-4 py-3 text-white font-medium rounded-xl'>
+                        ارسل
+                    </button>
+                </div>
+            </div>
+            <div class='p-4 bg-slate-50 rounded-xl mb-8'>
+                <div class='flex items-center gap-4'>
+                    <img src='/static/avatar.png' class='w-10 h-10 rounded-full object-cover' w='40' />
+                    <span class='font-medium '>هوســاوي</span>
+                    <span class='text-sm text-gray-500'>07:33 PM - 2025/05/17</span>
+                </div>
+                <!-- Comments  -->
+
+                <div class='mt-4'>
+                    <p>
+                        أصول قبائل الهوسا والأساطير والروايات التي وردت عنهم تعكس التاريخ
+                        الغني والمتنوع لهذا الشعب. أن هناك خلافات حول تفاصيل هذه القصص، إلا أن
+                        الأساطير والروايات الشفوية تلعب دوراً هاماً في فهم الهوية الثقافية
+                        والتاريخية للهوسا.
+                    </p>
+                </div>
+            </div>
+            <!-- End -->
+        </div>
+
+
+        <!-- Menu  -->
+        <div class='px-4 h-max sticky top-8 justify-items-start'>
+            <h1 class=' mb-4 text-sm font-medium'> الناشــر</h1>
+            <div class='flex flex-col gap-4'>
+                <div class='flex items-center gap-8 '>
+                    <Image width='48' height='48' class='rounded-full object-cover'
+                        urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                        src='https://ik.imagekit.io/r6yaoh57f/profile.png?updatedAt=1748803009317' />
+                    <a class='text-blue-800'>حيدر هوساوي</a>
+                </div>
+                <p class='text-gray-500 text-sm'>
+                    تابعنا علي مواقع التواصل الاخرى
+                </p>
+                <div class='flex gap-2'>
+                    <a>
+                        <Image width='30' height='30' class='rounded-full object-cover'
+                            urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                            src='https://ik.imagekit.io/r6yaoh57f/github.png' />
+                    </a>
+                    <a>
+                        <Image width='30' height='30' class='rounded-full object-cover'
+                            urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                            src='https://ik.imagekit.io/r6yaoh57f/youtube.jpg' />
+                    </a>
+                    <a>
+                        <Image width='30' height='30' class='rounded-full object-cover'
+                            urlEndpoint={import.meta.env.VITE_URL_ENDPOINT}
+                            src='https://ik.imagekit.io/r6yaoh57f/linkedin.png' />
+                    </a>
+                </div>
+            </div>
+            <!-- PostMenuAction  -->
+            <div class=''>
+                <h1 class='mt-8 mb-4 text-sm font-medium'>خيارات</h1>
+                <div class='flex items-center gap-2 text-sm cursor-pointer'>
+                    <svg width='20px' height='20px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path
+                            d='M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z'
+                            fill='#292D32' />
+                    </svg>
+                    <span>حفظ المنشور</span>
+                </div>
+                <div class='flex items-center gap-2 text-sm cursor-pointer'>
+                    <svg fill='#000000' width='20px' height='20px' viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'>
+                        <path
+                            d='M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z' />
+                    </svg>
+                    <span>حذف المنشور</span>
+                </div>
+            </div>
+            <!-- End -->
+            <h1 class='mt-8 mb-4 text-sm font-medium'>الموضوعات</h1>
+            <div class='flex flex-col gap-2 text-sm'>
+                <a class='underline' to='/posts'>
+                    كافة الموضوعات
+                </a>
+                <a class='underline' href="/posts?cat=origins">
+
+                    الاصول والتاريخ
+                </a>
+
+                <a class='underline' href="/posts?cat=religen">
+
+                    الدين والفكر
+                </a>
+
+                <a class='underline' href="/posts?cat=economy">
+
+                    الاقتصاد والتجارة
+                </a>
+
+                <a class='underline' href="/posts?cat=culture">
+
+                    الثقافة والتقاليد
+                </a>
+                <a class='underline' href="/posts?cat=modern-history">
+
+                    التاريح الحديث
+                </a>
+            </div>
+            <h1 class='mt-8 mb-4 text-sm font-medium'>بحث</h1>
+            <!-- Search -->
+            <div class='bg-gray-100 p-2 rounded-full flex items-center gap-2'>
+                <svg width='40px' height='40px' viewBox='0 -0.5 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path fillRule='evenodd' clipRule='evenodd'
+                        d='M11.132 9.71395C10.139 11.2496 10.3328 13.2665 11.6 14.585C12.8468 15.885 14.8527 16.0883 16.335 15.065C16.6466 14.8505 16.9244 14.5906 17.159 14.294C17.3897 14.0023 17.5773 13.679 17.716 13.334C18.0006 12.6253 18.0742 11.8495 17.928 11.1C17.7841 10.3573 17.4268 9.67277 16.9 9.12995C16.3811 8.59347 15.7128 8.22552 14.982 8.07395C14.2541 7.92522 13.4982 8.00197 12.815 8.29395C12.1254 8.58951 11.5394 9.08388 11.132 9.71395Z'
+                        stroke='#000000' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+                    <path
+                        d='M17.5986 13.6868C17.2639 13.4428 16.7947 13.5165 16.5508 13.8513C16.3069 14.1861 16.3806 14.6552 16.7154 14.8991L17.5986 13.6868ZM19.0584 16.6061C19.3931 16.85 19.8623 16.7764 20.1062 16.4416C20.3501 16.1068 20.2764 15.6377 19.9416 15.3938L19.0584 16.6061ZM7.5 12.7499C7.91421 12.7499 8.25 12.4142 8.25 11.9999C8.25 11.5857 7.91421 11.2499 7.5 11.2499V12.7499ZM5.5 11.2499C5.08579 11.2499 4.75 11.5857 4.75 11.9999C4.75 12.4142 5.08579 12.7499 5.5 12.7499V11.2499ZM7.5 15.7499C7.91421 15.7499 8.25 15.4142 8.25 14.9999C8.25 14.5857 7.91421 14.2499 7.5 14.2499V15.7499ZM5.5 14.2499C5.08579 14.2499 4.75 14.5857 4.75 14.9999C4.75 15.4142 5.08579 15.7499 5.5 15.7499V14.2499ZM8.5 9.74994C8.91421 9.74994 9.25 9.41415 9.25 8.99994C9.25 8.58573 8.91421 8.24994 8.5 8.24994V9.74994ZM5.5 8.24994C5.08579 8.24994 4.75 8.58573 4.75 8.99994C4.75 9.41415 5.08579 9.74994 5.5 9.74994V8.24994ZM16.7154 14.8991L19.0584 16.6061L19.9416 15.3938L17.5986 13.6868L16.7154 14.8991ZM7.5 11.2499H5.5V12.7499H7.5V11.2499ZM7.5 14.2499H5.5V15.7499H7.5V14.2499ZM8.5 8.24994H5.5V9.74994H8.5V8.24994Z'
+                        fill='#000000' />
+                </svg>
+                <input type='text' placeholder='search a post...' class='bg-transparent' />
+            </div>
+        </div>
+        <!-- End -->
+    </div>
+
+
+
+</div>
+{% endblock content%}
